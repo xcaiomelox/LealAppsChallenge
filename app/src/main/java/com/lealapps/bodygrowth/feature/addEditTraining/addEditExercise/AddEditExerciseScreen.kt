@@ -6,6 +6,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -38,6 +39,7 @@ fun AddEditExerciseScreen(
             .fillMaxWidth()
             .verticalScroll(rememberScrollState())
             .background(colorResource(id = R.color.gray_itemCard))
+            .padding(top = 0.dp)
     ) {
         ExerciseImage(imageURL = state.editedExercise.image, actions.onImageChanged)
         TextField(

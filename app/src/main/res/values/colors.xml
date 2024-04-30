@@ -10,4 +10,5 @@
     <color name="gray_itemCard">#25242A</color>
     <color name="gray_backgroundScreen">#14101A</color>
     <color name="background_buttomDate">#E7E0EC</color>
+    <color name="dayMonth_color">#F36623</color>
 </resources>

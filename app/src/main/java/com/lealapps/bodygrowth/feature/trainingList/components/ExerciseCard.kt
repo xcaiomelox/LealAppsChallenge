@@ -1,6 +1,6 @@
 package com.lealapps.bodygrowth.feature.trainingList.components
 
-import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -18,6 +19,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -39,20 +41,25 @@ fun ExerciseCard(
             .fillMaxWidth()
             .wrapContentHeight()
             .clip(RoundedCornerShape(12.dp))
-            .background(colorResource(id = R.color.gray_itemCard))
             .padding(8.dp)
     ) {
         Column(
             modifier = Modifier
                 .height(50.dp)
-                .width(50.dp)
+                .width(50.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ) {
 
             if (timestamp != null) {
-                Text(text = "${timestamp.date}", style = TextStyle(Color.White))
+                Text(
+                    text = "${timestamp.date}",
+                    style = TextStyle(colorResource(id = R.color.dayMonth_color)),
+                    fontWeight = FontWeight.Bold
+                )
                 Text(
                     text = timestamp.month.toExtendedMonth().take(3),
-                    style = TextStyle(Color.White)
+                    style = TextStyle(Color.White),
                 )
             }
         }
@@ -63,6 +70,7 @@ fun ExerciseCard(
             val (title, image, description) = createRefs()
             Text(
                 text = exercise.title,
+                fontWeight = FontWeight.Bold,
                 fontSize = 20.sp,
                 style = TextStyle(Color.White),
                 modifier = Modifier.constrainAs(title) {
