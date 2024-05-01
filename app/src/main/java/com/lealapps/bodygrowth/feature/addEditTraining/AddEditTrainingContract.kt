@@ -13,7 +13,7 @@ data class AddEditTrainingActions(
     val onTitleChanged: (String) -> Unit,
     val onDescriptionChanged: (String) -> Unit,
     val onDateChanged: (Timestamp) -> Unit,
-    val onAddNewExercise: () -> Unit,
-    val onEditExercise: (exercise: Exercise) -> Unit,
-    val onSaveTraining: () -> Unit,
+    val onAddNewExercise: () -> Unit = {},
+    val onEditExercise: (exercise: Exercise) -> Unit = {},
+    val onSaveTraining: () -> Unit = {},
 )
